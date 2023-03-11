@@ -1,3 +1,6 @@
+/* Imports DM Sans and Heebo */
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans&family=Heebo&display=swap");
+
 /* Defaults */
 
 * {
@@ -20,6 +23,8 @@ textarea {
 /* Variables */
 :root {
   --activeNavButtonColor: rgb(166, 82, 75, 0.4);
+  --titleFont: "DM Sans", system-ui, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 /* Grid styling for the whole page layout */
@@ -45,8 +50,7 @@ textarea {
   align-self: center;
   padding: 0.2rem 1rem;
 
-  font-family: "DM Sans", system-ui, "Segoe UI", Roboto, Helvetica, Arial,
-    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: var(--titleFont);
   letter-spacing: 0.4rem;
   font-size: 1.5rem;
 }
@@ -71,6 +75,7 @@ textarea {
 .nav button {
   border-radius: 5px;
   border: 0;
+  font-family: var(--titleFont);
 }
 
 .nav button:hover {
@@ -79,6 +84,20 @@ textarea {
 
 .main .content {
   background-color: #f2dfce;
+}
+
+.nav .projects {
+  display: grid;
+  grid-template: 1fr / 1fr 20px;
+  align-items: center;
+}
+
+.nav .add-project {
+  height: 20px;
+}
+
+.nav h3 {
+  font-family: var(--titleFont);
 }
 
 /* End of Main Styling */
