@@ -15,16 +15,10 @@ body {
   grid-template: 1.5fr 9fr 50px / 1fr;
 }
 
-/* Main layout */
-.main {
-  display: grid;
-  grid-template: 1fr / 1fr 5fr;
-}
-
 /* Start of Header Styling */
 
 .header {
-  background-color: #010101;
+  background-color: #f25757;
   color: white;
   display: grid;
   grid-template: 1fr / 1fr 1fr;
@@ -32,4 +26,41 @@ body {
   grid-gap: 20%;
 }
 
+.header h1 {
+  text-align: center;
+  align-self: center;
+  padding: 0.2rem 1rem;
+
+  font-family: "DM Sans", system-ui, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  letter-spacing: 0.4rem;
+  font-size: 1.5rem;
+}
+
 /* End of Header Styling */
+
+/* Start of Main Styling */
+
+.main {
+  display: grid;
+  grid-template: 1fr / 1fr 4fr;
+}
+
+.main .nav {
+  background-color: #36b1bf;
+}
+
+.main .content {
+  background-color: #f2dfce;
+}
+
+/* End of Main Styling */
+
+/* Footer styling */
+.footer {
+  background-color: #a6524b;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
