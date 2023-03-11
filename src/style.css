@@ -20,3 +20,16 @@ body {
   display: grid;
   grid-template: 1fr / 1fr 5fr;
 }
+
+/* Start of Header Styling */
+
+.header {
+  background-color: #010101;
+  color: white;
+  display: grid;
+  grid-template: 1fr / 1fr 1fr;
+  justify-content: space-around;
+  grid-gap: 20%;
+}
+
+/* End of Header Styling */
