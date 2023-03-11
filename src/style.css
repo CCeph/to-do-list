@@ -1,0 +1,22 @@
+/* Defaults */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/* Grid styling for the whole page layout */
+.grid-main {
+  display: grid;
+  height: 100vh;
+  grid-template: 1.5fr 9fr 50px / 1fr;
+}
+
+/* Main layout */
+.main {
+  display: grid;
+  grid-template: 1fr / 1fr 5fr;
+}
