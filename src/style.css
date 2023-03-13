@@ -25,6 +25,9 @@ textarea {
   --activeNavButtonColor: rgb(166, 82, 75, 0.4);
   --titleFont: "DM Sans", system-ui, "Segoe UI", Roboto, Helvetica, Arial,
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --listTitleFont: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Apple Color Emoji", Helvetica, Arial, sans-serif, "Segoe UI Emoji",
+    "Segoe UI Symbol";
 }
 
 /* Grid styling for the whole page layout */
@@ -98,6 +101,14 @@ textarea {
 
 .nav h3 {
   font-family: var(--titleFont);
+}
+
+.content {
+  padding: 10px 30px;
+}
+
+.content h1 {
+  font-family: var(--listTitleFont);
 }
 
 /* End of Main Styling */
