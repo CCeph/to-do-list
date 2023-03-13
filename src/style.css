@@ -41,7 +41,6 @@ textarea {
 
 .header {
   background-color: #f25757;
-  color: white;
   display: grid;
   grid-template: 1fr / 1fr 1fr;
   justify-content: space-around;
@@ -52,10 +51,30 @@ textarea {
   text-align: center;
   align-self: center;
   padding: 0.2rem 1rem;
+  color: white;
 
   font-family: var(--titleFont);
   letter-spacing: 0.4rem;
   font-size: 1.5rem;
+}
+
+.header button {
+  align-self: center;
+  justify-self: center;
+  background-color: transparent;
+  padding: 0;
+  border-radius: 5px;
+  border: 0;
+  color: white;
+  font-size: 2.5rem;
+  width: 50px;
+  height: 50px;
+  font-weight: 100;
+  font-family: var(--listTitleFont);
+}
+
+.header button:hover {
+  background-color: rgba(221, 221, 221, 0.3);
 }
 
 /* End of Header Styling */
