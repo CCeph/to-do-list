@@ -64,7 +64,7 @@ textarea {
 
 .main {
   display: grid;
-  grid-template: 1fr / 1fr 4fr;
+  grid-template: 1fr / 1fr 3fr;
 }
 
 .main .nav {
