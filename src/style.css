@@ -145,6 +145,24 @@ textarea {
   padding: 10px;
 }
 
+.addTaskPopup input {
+  display: block;
+  border: 0;
+  outline: 0;
+}
+
+.addTaskPopup .task-title {
+  font-size: 2rem;
+}
+
+.addTaskPopup :nth-child(2) {
+  font-size: 1rem;
+}
+
+.addTaskPopup .popupTray {
+  display: flex;
+}
+
 /* End of Popups */
 
 /* Footer styling */
