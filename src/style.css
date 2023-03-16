@@ -34,7 +34,7 @@ textarea {
 .grid-main {
   display: grid;
   height: 100vh;
-  grid-template: 1.5fr 9fr 50px / 1fr;
+  grid-template: 0.5fr 9fr 50px / 1fr;
 }
 
 /* Start of Header Styling */
