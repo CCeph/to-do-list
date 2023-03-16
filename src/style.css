@@ -132,6 +132,21 @@ textarea {
 
 /* End of Main Styling */
 
+/* Start of Popups */
+
+.addTaskPopup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: black solid 1px;
+  border-radius: 3px;
+  padding: 10px;
+}
+
+/* End of Popups */
+
 /* Footer styling */
 .footer {
   background-color: #a6524b;
