@@ -148,11 +148,17 @@ textarea {
   border: black solid 1px;
   border-radius: 3px;
   padding: 10px;
+
+  transition: top 0ms ease-in-out 200ms, opacity 200ms ease-in-out 0ms,
+    transform 20ms ease-in-out 0ms;
 }
 
 .addTaskPopup.active {
   top: 50%;
   opacity: 1;
+
+  transition: top 0ms ease-in-out 0ms, opacity 200ms ease-in-out 0ms,
+    transform 20ms ease-in-out 0ms;
 }
 
 .addTaskPopup :is(input, div, button) {
