@@ -1,5 +1,6 @@
 import "./style.css";
 import PubSub from "pubsub-js";
+import "./outputHandler";
 
 function createDOMCache() {
   const $headerAddTaskButton = document.querySelector(".add-task");
@@ -7,7 +8,7 @@ function createDOMCache() {
     ".addTaskPopup button[type=reset]"
   );
   const $submitNewTaskButton = document.querySelector(
-    "addTaskPopup button[type=submit]"
+    ".addTaskPopup button[type=submit]"
   );
   return { $headerAddTaskButton, $cancelNewTaskButton, $submitNewTaskButton };
 }
