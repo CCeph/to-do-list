@@ -1,4 +1,5 @@
 import "./style.css";
+import PubSub from "pubsub-js";
 
 function createDOMCache() {
   const $headerAddTaskButton = document.querySelector(".add-task");
@@ -13,6 +14,26 @@ function createDOMCache() {
 
 const cachedDOM = createDOMCache();
 
-function bindEventsForAddingTasks() {}
+function bindEventsForAddingTasks() {
+  // Shows the Add Task Popup
+  cachedDOM.$headerAddTaskButton.addEventListener("click", () => {
+    const showAddTaskPopup = "showAddTaskPopup";
+    PubSub.publish(showAddTaskPopup);
+  });
+
+  // Hides the Add Task Popup upon cancelling
+  cachedDOM.$cancelNewTaskButton.addEventListener("click", () => {
+    const hideAddTaskPopup = "hideAddTaskPopup";
+    PubSub.publish(hideAddTaskPopup);
+  });
+
+  // Hides the Add Task Popup upon submitting
+  cachedDOM.$submitNewTaskButton.addEventListener("click", () => {
+    const hideAddTaskPopup = "hideAddTaskPopup";
+    PubSub.publish(hideAddTaskPopup);
+  });
+}
+
+bindEventsForAddingTasks();
 
 console.log("Test");
