@@ -10,13 +10,35 @@ const cachedDOM = createDOMCache();
 const projectArray = [];
 
 // Object for every project
-function createProject() {
-  console.log("Create a project");
+function createProject(projectName) {
+  const taskListArray = [];
+  return { projectName, taskListArray };
 }
+
+const inbox = createProject("inbox");
+projectArray.push(inbox);
 
 // Object for every task
-function createTask() {
-  console.log("Create a Task");
+function createTask(formID, formAnswers) {
+  if (formAnswers.project === "") {
+    inbox.taskListArray.push(formAnswers);
+    console.log(projectArray);
+    return;
+  }
+  const projectMatch = projectArray.find(
+    (project) => project.projectName === formAnswers.project
+  );
+  if (projectMatch === undefined) {
+    const newProject = createProject(`${formAnswers.project}`);
+    newProject.taskListArray.push(formAnswers);
+    projectArray.push(newProject);
+  } else {
+    projectMatch.taskListArray.push(formAnswers);
+  }
+  console.log(projectArray);
 }
 
-PubSub.subscribe(cachedDOM.$newTaskForm.id, createTask);
+const subscribeToNewTask = PubSub.subscribe(
+  cachedDOM.$newTaskForm.id,
+  createTask
+);
