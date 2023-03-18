@@ -22,7 +22,6 @@ projectArray.push(inbox);
 function createTask(formID, formAnswers) {
   if (formAnswers.project === "") {
     inbox.taskListArray.push(formAnswers);
-    console.log(projectArray);
     return;
   }
   const projectMatch = projectArray.find(
@@ -35,7 +34,6 @@ function createTask(formID, formAnswers) {
   } else {
     projectMatch.taskListArray.push(formAnswers);
   }
-  console.log(projectArray);
 }
 
 const subscribeToNewTask = PubSub.subscribe(
