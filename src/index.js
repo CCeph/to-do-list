@@ -1,6 +1,7 @@
 import "./style.css";
 import PubSub from "pubsub-js";
 import "./outputHandler";
+import "./inputHandler";
 
 function createDOMCache() {
   const $headerAddTaskButton = document.querySelector(".add-task");
@@ -36,5 +37,3 @@ function bindEventsForAddingTasks() {
 }
 
 bindEventsForAddingTasks();
-
-console.log("Test");

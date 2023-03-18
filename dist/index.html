@@ -32,12 +32,17 @@
       </div>
 
       <div class="popup addTaskPopup">
-        <form action="">
-          <input type="text" class="task-title" placeholder="Task Name" />
-          <input type="text" placeholder="Description" />
+        <form id="newTaskForm" action="" method="post" autocomplete="off">
+          <input
+            id="taskTitle"
+            type="text"
+            class="task-title"
+            placeholder="Task Name"
+          />
+          <input id="description" type="text" placeholder="Description" />
           <div class="popupTray">
-            <input type="text" placeholder="Project" />
-            <div class="date-container"><input type="date" /></div>
+            <input id="project" type="text" placeholder="Project" />
+            <div class="date-container"><input id="dueDate" type="date" /></div>
           </div>
           <hr />
           <div class="bottomTray">
