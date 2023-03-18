@@ -2,7 +2,8 @@ import PubSub from "pubsub-js";
 
 function createDOMCache() {
   const $newTaskForm = document.querySelector(".addTaskPopup form");
-  return { $newTaskForm };
+  const $newProjectForm = document.querySelector(".addProjectPopup form");
+  return { $newTaskForm, $newProjectForm };
 }
 
 const cachedDOM = createDOMCache();
@@ -25,4 +26,9 @@ function getFormData(form) {
 cachedDOM.$newTaskForm.addEventListener("submit", (e) => {
   e.preventDefault();
   getFormData(cachedDOM.$newTaskForm);
+});
+
+cachedDOM.$newProjectForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  getFormData(cachedDOM.$newProjectForm);
 });
