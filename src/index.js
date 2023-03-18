@@ -51,4 +51,25 @@ function bindEventsForAddingTasks() {
   });
 }
 
+function bindEventsForAddingProjects() {
+  // Shows the Add Project Popup
+  cachedDOM.$navAddProjectButton.addEventListener("click", () => {
+    const showAddProjectPopup = "showAddProjectPopup";
+    PubSub.publish(showAddProjectPopup);
+  });
+
+  // Hides the Add Project Popup upon cancelling
+  cachedDOM.$cancelNewProjectButton.addEventListener("click", () => {
+    const hideAddProjectPopup = "hideAddProjectPopup";
+    PubSub.publish(hideAddProjectPopup);
+  });
+
+  // Hides the Add Project Popup upon submitting
+  cachedDOM.$submitNewProjectButton.addEventListener("click", () => {
+    const hideAddProjectPopup = "hideAddProjectPopup";
+    PubSub.publish(hideAddProjectPopup);
+  });
+}
+
 bindEventsForAddingTasks();
+bindEventsForAddingProjects();
