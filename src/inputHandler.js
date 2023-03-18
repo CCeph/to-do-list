@@ -1,3 +1,5 @@
+import PubSub from "pubsub-js";
+
 function createDOMCache() {
   const $newTaskForm = document.querySelector(".addTaskPopup form");
   return { $newTaskForm };
@@ -17,7 +19,7 @@ function getFormData(form) {
     }),
     {}
   );
-  console.log(formAnswersObject);
+  PubSub.publish(form.id, formAnswersObject);
 }
 
 cachedDOM.$newTaskForm.addEventListener("submit", (e) => {
