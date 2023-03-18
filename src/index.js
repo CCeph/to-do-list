@@ -12,7 +12,21 @@ function createDOMCache() {
   const $submitNewTaskButton = document.querySelector(
     ".addTaskPopup button[type=submit]"
   );
-  return { $headerAddTaskButton, $cancelNewTaskButton, $submitNewTaskButton };
+  const $navAddProjectButton = document.querySelector(".add-project");
+  const $cancelNewProjectButton = document.querySelector(
+    ".addProjectPopup button[type=reset]"
+  );
+  const $submitNewProjectButton = document.querySelector(
+    ".addProjectPopup button[type=submit]"
+  );
+  return {
+    $headerAddTaskButton,
+    $cancelNewTaskButton,
+    $submitNewTaskButton,
+    $navAddProjectButton,
+    $cancelNewProjectButton,
+    $submitNewProjectButton,
+  };
 }
 
 const cachedDOM = createDOMCache();
