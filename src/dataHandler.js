@@ -43,11 +43,13 @@ function createTask(formID, formAnswers) {
   }
 }
 
+// eslint-disable-next-line no-unused-vars
 const subscribeToNewTask = PubSub.subscribe(
   cachedDOM.$newTaskForm.id,
   createTask
 );
 
+// eslint-disable-next-line no-unused-vars
 const subscribeToNewProject = PubSub.subscribe(
   cachedDOM.$newProjectForm.id,
   createUserProject
