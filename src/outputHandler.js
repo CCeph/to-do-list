@@ -3,7 +3,8 @@ import PubSub from "pubsub-js";
 // Cache DOM Elements
 function createDOMCache() {
   const $newTaskPopup = document.querySelector(".addTaskPopup");
-  return { $newTaskPopup };
+  const $newProjectPopup = document.querySelector(".addProjectPopup");
+  return { $newTaskPopup, $newProjectPopup };
 }
 
 const cachedDOM = createDOMCache();
@@ -25,4 +26,22 @@ function bindEventsForAddingTasks() {
   PubSub.subscribe(hideAddTaskPopupEvent, hideAddTaskPopup);
 }
 
+function showAddProjectPopup() {
+  cachedDOM.$newProjectPopup.classList.add("active");
+}
+
+function hideAddProjectPopup() {
+  cachedDOM.$newProjectPopup.classList.remove("active");
+}
+
+function bindEventsForAddingProjects() {
+  const showAddProjectPopupEvent = "showAddProjectPopup";
+  const hideAddProjectPopupEvent = "hideAddProjectPopup";
+
+  PubSub.subscribe(showAddProjectPopupEvent, showAddProjectPopup);
+
+  PubSub.subscribe(hideAddProjectPopupEvent, hideAddProjectPopup);
+}
+
 bindEventsForAddingTasks();
+bindEventsForAddingProjects();
