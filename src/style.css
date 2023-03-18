@@ -169,14 +169,29 @@ textarea {
   outline: 0;
 }
 
-/* End of Styling for All Popups */
-
-/* Start of Styling for Task Popup */
-
-.addTaskPopup .task-title {
+.popup > form > :first-child {
   font-size: 2rem;
   width: 100%;
 }
+
+.popup button {
+  font-size: 1rem;
+  font-weight: bold;
+  border: solid 1px black;
+  border-radius: 4px;
+}
+
+.popup button[type="submit"] {
+  background-color: var(--cyanForeground);
+}
+
+.popup button:active {
+  box-shadow: var(--clickedButtonShadow);
+}
+
+/* End of Styling for All Popups */
+
+/* Start of Styling for Task Popup */
 
 .addTaskPopup > :nth-child(2) {
   font-size: 1rem;
@@ -196,25 +211,10 @@ textarea {
   justify-content: right;
 }
 
-.addTaskPopup .bottomTray {
+.popup .bottomTray {
   display: flex;
   justify-content: right;
   gap: 10px;
-}
-
-.addTaskPopup button {
-  font-size: 1rem;
-  font-weight: bold;
-  border: solid 1px black;
-  border-radius: 4px;
-}
-
-.addTaskPopup button[type="submit"] {
-  background-color: var(--cyanForeground);
-}
-
-.addTaskPopup button:active {
-  box-shadow: var(--clickedButtonShadow);
 }
 
 /* End of Task Popup */
