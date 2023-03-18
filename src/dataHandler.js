@@ -2,7 +2,8 @@ import PubSub from "pubsub-js";
 
 function createDOMCache() {
   const $newTaskForm = document.querySelector(".addTaskPopup form");
-  return { $newTaskForm };
+  const $newProjectForm = document.querySelector(".addProjectPopup form");
+  return { $newTaskForm, $newProjectForm };
 }
 
 const cachedDOM = createDOMCache();
@@ -13,6 +14,12 @@ const projectArray = [];
 function createProject(projectName) {
   const taskListArray = [];
   return { projectName, taskListArray };
+}
+
+function createUserProject(formID, project) {
+  const newProject = createProject(project.projectTitle);
+  projectArray.push(newProject);
+  console.log(projectArray);
 }
 
 const inbox = createProject("inbox");
@@ -39,4 +46,9 @@ function createTask(formID, formAnswers) {
 const subscribeToNewTask = PubSub.subscribe(
   cachedDOM.$newTaskForm.id,
   createTask
+);
+
+const subscribeToNewProject = PubSub.subscribe(
+  cachedDOM.$newProjectForm.id,
+  createUserProject
 );
