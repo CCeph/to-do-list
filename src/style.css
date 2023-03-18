@@ -134,11 +134,9 @@ textarea {
 
 /* End of Main Styling */
 
-/* Start of Popups */
+/* Start of Styling for All Popups */
 
-/* Start of Task Popup */
-
-.addTaskPopup {
+.popup {
   top: -150%;
   opacity: 0;
   position: absolute;
@@ -153,7 +151,7 @@ textarea {
     transform 20ms ease-in-out 0ms;
 }
 
-.addTaskPopup.active {
+.popup.active {
   top: 50%;
   opacity: 1;
 
@@ -161,15 +159,19 @@ textarea {
     transform 20ms ease-in-out 0ms;
 }
 
-.addTaskPopup :is(input, div, button) {
+.popup :is(input, div, button) {
   margin-bottom: 10px;
 }
 
-.addTaskPopup input {
+.popup input {
   display: block;
   border: 0;
   outline: 0;
 }
+
+/* End of Styling for All Popups */
+
+/* Start of Styling for Task Popup */
 
 .addTaskPopup .task-title {
   font-size: 2rem;
@@ -217,7 +219,9 @@ textarea {
 
 /* End of Task Popup */
 
-/* End of Popups */
+/* Start of Project Popup */
+
+/* End of Project Popup */
 
 /* Footer styling */
 .footer {
