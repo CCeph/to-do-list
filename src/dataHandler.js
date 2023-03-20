@@ -19,6 +19,10 @@ function createProject(projectName) {
 function createUserProject(formID, project) {
   const newProject = createProject(project.projectTitle);
   projectArray.push(newProject);
+
+  // Announces a new project. Output handler listens to this.
+  const newProjectAdded = "newProjectAdded";
+  PubSub.publish(newProjectAdded, projectArray);
 }
 
 const inbox = createProject("inbox");
