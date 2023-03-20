@@ -19,7 +19,6 @@ function createProject(projectName) {
 function createUserProject(formID, project) {
   const newProject = createProject(project.projectTitle);
   projectArray.push(newProject);
-  console.log(projectArray);
 }
 
 const inbox = createProject("inbox");
