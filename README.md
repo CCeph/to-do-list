@@ -28,8 +28,6 @@ Things to implement:
     Create a form to add items to certain projects.
 
 
-    Create form for Projects
-    Do dataHandling for Projects
     Handle output for tasks and Projects
     Figure out date-fns to get Today and This Week working
     Figure out localStorage
