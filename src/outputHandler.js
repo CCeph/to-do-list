@@ -51,8 +51,8 @@ function clearCurrentProjectDisplay() {
 
 function bindRemoveProjectButton(button) {
   button.addEventListener("click", () => {
-    const removeProject = "removeProject";
-    PubSub.publish(removeProject, button);
+    const removeProjectEvent = "removeProjectEvent";
+    PubSub.publish(removeProjectEvent, button);
   });
 }
 
@@ -85,13 +85,13 @@ function displayCurrentProjects(eventMessage, projectArray) {
 function bindEventsForAddingProjects() {
   const showAddProjectPopupEvent = "showAddProjectPopup";
   const hideAddProjectPopupEvent = "hideAddProjectPopup";
-  const newProjectAdded = "newProjectAdded";
+  const displayProjectsEvent = "displayProjectsEvent";
 
   PubSub.subscribe(showAddProjectPopupEvent, showAddProjectPopup);
 
   PubSub.subscribe(hideAddProjectPopupEvent, hideAddProjectPopup);
 
-  PubSub.subscribe(newProjectAdded, displayCurrentProjects);
+  PubSub.subscribe(displayProjectsEvent, displayCurrentProjects);
 }
 
 bindEventsForAddingTasks();

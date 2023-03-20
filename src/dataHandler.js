@@ -21,8 +21,8 @@ function createUserProject(formID, project) {
   projectArray.push(newProject);
 
   // Announces a new project. Output handler listens to this.
-  const newProjectAdded = "newProjectAdded";
-  PubSub.publish(newProjectAdded, projectArray);
+  const displayProjectsEvent = "displayProjectsEvent";
+  PubSub.publish(displayProjectsEvent, projectArray);
 }
 
 const inbox = createProject("inbox");
@@ -46,6 +46,12 @@ function createTask(formID, formAnswers) {
   }
 }
 
+function removeProject(eventMessage, removeProjectButton) {
+  const indexToRemove = removeProjectButton.id.slice(-1);
+  projectArray.splice(indexToRemove, 1);
+  const displayProjectsEvent = "displayProjectsEvent";
+  PubSub.publish(displayProjectsEvent, projectArray);
+}
 // eslint-disable-next-line no-unused-vars
 const subscribeToNewTask = PubSub.subscribe(
   cachedDOM.$newTaskForm.id,
@@ -56,4 +62,10 @@ const subscribeToNewTask = PubSub.subscribe(
 const subscribeToNewProject = PubSub.subscribe(
   cachedDOM.$newProjectForm.id,
   createUserProject
+);
+
+const removeProjectEvent = "removeProjectEvent";
+const subscribeToRemoveProject = PubSub.subscribe(
+  removeProjectEvent,
+  removeProject
 );
