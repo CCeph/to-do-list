@@ -158,6 +158,7 @@ textarea {
   outline: solid 1px black;
   display: grid;
   grid-template: 1fr 1fr / 1fr 50px;
+  padding: 10px;
 }
 
 .task-wrapper .task-sidebar {
@@ -177,6 +178,14 @@ textarea {
 
 .task-sidebar .remove-task-button:hover {
   background-color: var(--activeNavButtonColor);
+}
+
+.task-wrapper .task-title {
+  margin: 5px;
+}
+
+.task-wrapper .description {
+  margin: 5px;
 }
 
 /* End of Main Styling */
