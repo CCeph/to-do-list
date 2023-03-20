@@ -49,7 +49,7 @@ function clearCurrentProjectDisplay() {
   });
 }
 
-function displayProject(project) {
+function displayProject(project, projectIndex) {
   console.log(project);
   const wrapper = document.createElement("div");
   wrapper.classList.add("project-wrapper");
@@ -62,6 +62,9 @@ function displayProject(project) {
 
   const removeProjectButton = document.createElement("button");
   removeProjectButton.classList.add("remove-project");
+  // Adds an ID to the remove button so it can be used to identify the project
+  // to remove when button is clicked.
+  removeProjectButton.id = `navProjectID${projectIndex + 1}`;
   removeProjectButton.textContent = "x";
   wrapper.appendChild(removeProjectButton);
 }
