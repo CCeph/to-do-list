@@ -41,7 +41,7 @@ function removeInboxFromProjectArray(array) {
 }
 
 function clearCurrentProjectDisplay() {
-  const listOfProjects = document.querySelectorAll(".nav .projectwrapper");
+  const listOfProjects = document.querySelectorAll(".nav .project-wrapper");
   const arrayOfProjects = Array.from(listOfProjects);
   arrayOfProjects.forEach((project) => {
     project.remove();
