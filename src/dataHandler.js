@@ -65,6 +65,7 @@ const subscribeToNewProject = PubSub.subscribe(
 );
 
 const removeProjectEvent = "removeProjectEvent";
+// eslint-disable-next-line no-unused-vars
 const subscribeToRemoveProject = PubSub.subscribe(
   removeProjectEvent,
   removeProject
