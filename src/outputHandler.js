@@ -50,7 +50,6 @@ function clearCurrentProjectDisplay() {
 }
 
 function displayProject(project, projectIndex) {
-  console.log(project);
   const wrapper = document.createElement("div");
   wrapper.classList.add("project-wrapper");
   cachedDOM.$nav.appendChild(wrapper);
