@@ -154,6 +154,31 @@ textarea {
   font-family: var(--listTitleFont);
 }
 
+.content .task-wrapper {
+  outline: solid 1px black;
+  display: grid;
+  grid-template: 1fr 1fr / 1fr 50px;
+}
+
+.task-wrapper .task-sidebar {
+  grid-area: 1 / 2 / 3 / 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.task-sidebar .remove-task-button {
+  height: 20px;
+  background-color: transparent;
+  border-radius: 5px;
+  border: 0;
+  font-family: var(--titleFont);
+}
+
+.task-sidebar .remove-task-button:hover {
+  background-color: var(--activeNavButtonColor);
+}
+
 /* End of Main Styling */
 
 /* Start of Styling for All Popups */
