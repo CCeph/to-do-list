@@ -34,8 +34,28 @@ function hideAddProjectPopup() {
   cachedDOM.$newProjectPopup.classList.remove("active");
 }
 
-function displayCurrentProjects() {
-  console.log("listen");
+function removeInboxFromProjectArray(array) {
+  const cloneArray = array.slice();
+  cloneArray.shift();
+  return cloneArray;
+}
+
+function clearCurrentProjectDisplay() {
+  const listOfProjects = document.querySelectorAll(".nav .projectwrapper");
+  const arrayOfProjects = Array.from(listOfProjects);
+  arrayOfProjects.forEach((project) => {
+    project.remove();
+  });
+}
+
+function displayProject() {
+  console.log("works");
+}
+
+function displayCurrentProjects(eventMessage, projectArray) {
+  const arrayToDisplay = removeInboxFromProjectArray(projectArray);
+  clearCurrentProjectDisplay();
+  arrayToDisplay.forEach(displayProject);
 }
 
 function bindEventsForAddingProjects() {
