@@ -4,7 +4,8 @@ import PubSub from "pubsub-js";
 function createDOMCache() {
   const $newTaskPopup = document.querySelector(".addTaskPopup");
   const $newProjectPopup = document.querySelector(".addProjectPopup");
-  return { $newTaskPopup, $newProjectPopup };
+  const $nav = document.querySelector(".nav");
+  return { $newTaskPopup, $newProjectPopup, $nav };
 }
 
 const cachedDOM = createDOMCache();
@@ -48,8 +49,21 @@ function clearCurrentProjectDisplay() {
   });
 }
 
-function displayProject() {
-  console.log("works");
+function displayProject(project) {
+  console.log(project);
+  const wrapper = document.createElement("div");
+  wrapper.classList.add("project-wrapper");
+  cachedDOM.$nav.appendChild(wrapper);
+
+  const projectButton = document.createElement("button");
+  projectButton.classList.add("nav-project");
+  projectButton.textContent = project.projectName;
+  wrapper.appendChild(projectButton);
+
+  const removeProjectButton = document.createElement("button");
+  removeProjectButton.classList.add("remove-project");
+  removeProjectButton.textContent = "x";
+  wrapper.appendChild(removeProjectButton);
 }
 
 function displayCurrentProjects(eventMessage, projectArray) {
