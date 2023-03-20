@@ -32,3 +32,4 @@ Things to implement:
     Figure out date-fns to get Today and This Week working
     Figure out localStorage
     Do form validation and styling
+    Empty the form upon submission or cancelling.
