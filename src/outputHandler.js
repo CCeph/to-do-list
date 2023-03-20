@@ -34,13 +34,20 @@ function hideAddProjectPopup() {
   cachedDOM.$newProjectPopup.classList.remove("active");
 }
 
+function displayCurrentProjects() {
+  console.log("listen");
+}
+
 function bindEventsForAddingProjects() {
   const showAddProjectPopupEvent = "showAddProjectPopup";
   const hideAddProjectPopupEvent = "hideAddProjectPopup";
+  const newProjectAdded = "newProjectAdded";
 
   PubSub.subscribe(showAddProjectPopupEvent, showAddProjectPopup);
 
   PubSub.subscribe(hideAddProjectPopupEvent, hideAddProjectPopup);
+
+  PubSub.subscribe(newProjectAdded, displayCurrentProjects);
 }
 
 bindEventsForAddingTasks();
