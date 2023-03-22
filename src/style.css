@@ -154,24 +154,52 @@ textarea {
   font-family: var(--listTitleFont);
 }
 
+/* Start of Task flex alignment*/
+
+.task-wrapper .task-details {
+  display: flex;
+}
+
+.task-details .task-left-sidebar {
+  flex: 0 1 auto;
+  display: flex;
+  align-items: center;
+}
+
+.task-details .task-title {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.task-details .task-right-sidebar {
+  flex: 0 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+/* End of Task flex alignment*/
+
+/* Start of Task Styling */
+
 .content .task-wrapper {
   background-color: rgb(192, 192, 192, 0.5);
   border: 1px solid rgb(99, 99, 99);
   border-radius: 5px;
-  display: grid;
-  grid-template: 1fr / 1fr 50px;
-  padding: 10px;
+  padding: 0px 10px;
   margin-top: 10px;
+  list-style-type: none;
 }
 
-.task-wrapper .task-sidebar {
-  grid-area: 1 / 2 / 3 / 3;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.task-left-sidebar > button {
+  border-radius: 1.1rem;
+  height: 1rem;
+  width: 1rem;
 }
 
-.task-sidebar .remove-task-button {
+.task-right-sidebar .remove-task-button {
   height: 20px;
   background-color: transparent;
   border-radius: 5px;
@@ -179,17 +207,17 @@ textarea {
   font-family: var(--titleFont);
 }
 
-.task-sidebar .remove-task-button:hover {
+.task-right-sidebar .remove-task-button:hover {
   background-color: var(--activeNavButtonColor);
 }
 
 .task-wrapper .task-title {
   margin: 5px;
+  font-family: var(--titleFont);
+  font-weight: 200;
 }
 
-.task-wrapper .description {
-  margin: 5px;
-}
+/* End of Task Styling */
 
 /* End of Main Styling */
 
