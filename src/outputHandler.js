@@ -130,6 +130,9 @@ function displayProject(project, projectIndex) {
   const projectButton = document.createElement("button");
   projectButton.classList.add("nav-project");
   projectButton.textContent = project.projectName;
+  projectButton.addEventListener("click", () => {
+    displayProjectTasks("", project);
+  });
   wrapper.appendChild(projectButton);
 
   const removeProjectButton = document.createElement("button");
