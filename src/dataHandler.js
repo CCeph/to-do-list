@@ -32,6 +32,9 @@ projectArray.push(inbox);
 function createTask(formID, formAnswers) {
   if (formAnswers.project === "") {
     inbox.taskListArray.push(formAnswers);
+
+    const newTaskEvent = "newTaskEvent";
+    PubSub.publish(newTaskEvent, formAnswers);
     return;
   }
   const projectMatch = projectArray.find(
