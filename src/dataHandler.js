@@ -25,7 +25,7 @@ function createUserProject(formID, project) {
   PubSub.publish(displayProjectsEvent, projectArray);
 }
 
-const inbox = createProject("inbox");
+const inbox = createProject("Inbox");
 projectArray.push(inbox);
 
 // Object for every task
