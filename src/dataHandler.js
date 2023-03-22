@@ -34,7 +34,7 @@ function createTask(formID, formAnswers) {
     inbox.taskListArray.push(formAnswers);
 
     const displayInboxTasksEvent = "displayInboxTasksEvent";
-    PubSub.publish(displayInboxTasksEvent, formAnswers);
+    PubSub.publish(displayInboxTasksEvent, inbox);
     return;
   }
   const projectMatch = projectArray.find(

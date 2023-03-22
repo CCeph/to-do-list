@@ -5,7 +5,8 @@ function createDOMCache() {
   const $newTaskPopup = document.querySelector(".addTaskPopup");
   const $newProjectPopup = document.querySelector(".addProjectPopup");
   const $nav = document.querySelector(".nav");
-  return { $newTaskPopup, $newProjectPopup, $nav };
+  const $taskList = document.querySelector(".task-list");
+  return { $newTaskPopup, $newProjectPopup, $nav, $taskList };
 }
 
 const cachedDOM = createDOMCache();
@@ -18,13 +19,66 @@ function hideAddTaskPopup() {
   cachedDOM.$newTaskPopup.classList.remove("active");
 }
 
+function clearCurrentTaskDisplay() {
+  cachedDOM.$taskList.textContent = "";
+}
+
+function displayTask(currentTask, currentTaskIndex) {
+  const taskWrapper = document.createElement("li");
+  taskWrapper.classList.add("task-wrapper");
+  cachedDOM.$taskList.appendChild(taskWrapper);
+
+  const wrapperButton = document.createElement("div");
+  wrapperButton.classList.add("task-details");
+  wrapperButton.setAttribute("data-role", "details-button");
+  taskWrapper.appendChild(wrapperButton);
+
+  const leftSidebar = document.createElement("div");
+  leftSidebar.classList.add("task-left-sidebar");
+  wrapperButton.appendChild(leftSidebar);
+
+  const checkButton = document.createElement("button");
+  const checkMark = document.createElement("span");
+  checkMark.classList.add("material-symbols-outlined");
+  checkMark.textContent = "done";
+  checkButton.appendChild(checkMark);
+  leftSidebar.appendChild(checkButton);
+
+  const title = document.createElement("h3");
+  title.classList.add("task-title");
+  title.textContent = currentTask.taskTitle;
+  wrapperButton.appendChild(title);
+
+  const rightSidebar = document.createElement("div");
+  rightSidebar.classList.add("task-right-sidebar");
+  wrapperButton.appendChild(rightSidebar);
+
+  const dueDate = document.createElement("p");
+  dueDate.textContent = currentTask.dueDate;
+  rightSidebar.appendChild(dueDate);
+
+  const removeTaskButton = document.createElement("button");
+  removeTaskButton.classList.add("remove-task-button");
+  removeTaskButton.id = `${currentTask.project}TaskID${currentTaskIndex}`;
+  removeTaskButton.textContent = "x";
+  rightSidebar.appendChild(removeTaskButton);
+}
+
+function displayInboxTasks(eventMessage, inbox) {
+  clearCurrentTaskDisplay();
+  inbox.taskListArray.forEach(displayTask);
+}
+
 function bindEventsForAddingTasks() {
   const showAddTaskPopupEvent = "showAddTaskPopup";
   const hideAddTaskPopupEvent = "hideAddTaskPopup";
+  const displayInboxTasksEvent = "displayInboxTasksEvent";
 
   PubSub.subscribe(showAddTaskPopupEvent, showAddTaskPopup);
 
   PubSub.subscribe(hideAddTaskPopupEvent, hideAddTaskPopup);
+
+  PubSub.subscribe(displayInboxTasksEvent, displayInboxTasks);
 }
 
 function showAddProjectPopup() {
