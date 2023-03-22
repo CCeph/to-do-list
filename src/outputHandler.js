@@ -81,11 +81,14 @@ function displayProjectTasks(eventMessage, currentProject) {
 function bindEventsForAddingTasks() {
   const showAddTaskPopupEvent = "showAddTaskPopup";
   const hideAddTaskPopupEvent = "hideAddTaskPopup";
-  const displayProjectTasksEvent = "displayProjectTasksEvent";
 
   PubSub.subscribe(showAddTaskPopupEvent, showAddTaskPopup);
 
   PubSub.subscribe(hideAddTaskPopupEvent, hideAddTaskPopup);
+}
+
+function bindEventsForDisplayingCurrentTasks() {
+  const displayProjectTasksEvent = "displayProjectTasksEvent";
 
   PubSub.subscribe(displayProjectTasksEvent, displayProjectTasks);
 }
@@ -159,3 +162,4 @@ function bindEventsForAddingProjects() {
 
 bindEventsForAddingTasks();
 bindEventsForAddingProjects();
+bindEventsForDisplayingCurrentTasks();

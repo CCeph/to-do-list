@@ -3,7 +3,8 @@ import PubSub from "pubsub-js";
 function createDOMCache() {
   const $newTaskForm = document.querySelector(".addTaskPopup form");
   const $newProjectForm = document.querySelector(".addProjectPopup form");
-  return { $newTaskForm, $newProjectForm };
+  const $navInboxButton = document.querySelector(".nav > .inbox");
+  return { $newTaskForm, $newProjectForm, $navInboxButton };
 }
 
 const cachedDOM = createDOMCache();
@@ -46,6 +47,8 @@ function createTask(formID, formAnswers) {
     projectArray.push(newProject);
     const displayProjectTasksEvent = "displayProjectTasksEvent";
     PubSub.publish(displayProjectTasksEvent, newProject);
+    const displayProjectsEvent = "displayProjectsEvent";
+    PubSub.publish(displayProjectsEvent, projectArray);
   } else {
     projectMatch.taskListArray.push(formAnswers);
     const displayProjectTasksEvent = "displayProjectTasksEvent";
@@ -77,3 +80,12 @@ const subscribeToRemoveProject = PubSub.subscribe(
   removeProjectEvent,
   removeProject
 );
+
+function bindEventsForTaskDisplays() {
+  cachedDOM.$navInboxButton.addEventListener("click", () => {
+    const displayProjectTasksEvent = "displayProjectTasksEvent";
+    PubSub.publish(displayProjectTasksEvent, projectArray[0]);
+  });
+}
+
+bindEventsForTaskDisplays();
