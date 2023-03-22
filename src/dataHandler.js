@@ -33,8 +33,8 @@ function createTask(formID, formAnswers) {
   if (formAnswers.project === "") {
     inbox.taskListArray.push(formAnswers);
 
-    const displayInboxTasksEvent = "displayInboxTasksEvent";
-    PubSub.publish(displayInboxTasksEvent, inbox);
+    const displayProjectTasksEvent = "displayProjectTasksEvent";
+    PubSub.publish(displayProjectTasksEvent, inbox);
     return;
   }
   const projectMatch = projectArray.find(

@@ -6,7 +6,14 @@ function createDOMCache() {
   const $newProjectPopup = document.querySelector(".addProjectPopup");
   const $nav = document.querySelector(".nav");
   const $taskList = document.querySelector(".task-list");
-  return { $newTaskPopup, $newProjectPopup, $nav, $taskList };
+  const $currentProjectTitle = document.querySelector(".content > h1");
+  return {
+    $newTaskPopup,
+    $newProjectPopup,
+    $nav,
+    $taskList,
+    $currentProjectTitle,
+  };
 }
 
 const cachedDOM = createDOMCache();
@@ -64,21 +71,23 @@ function displayTask(currentTask, currentTaskIndex) {
   rightSidebar.appendChild(removeTaskButton);
 }
 
-function displayInboxTasks(eventMessage, inbox) {
+function displayProjectTasks(eventMessage, currentProject) {
+  console.log(currentProject);
+  cachedDOM.$currentProjectTitle.textContent = currentProject.projectName;
   clearCurrentTaskDisplay();
-  inbox.taskListArray.forEach(displayTask);
+  currentProject.taskListArray.forEach(displayTask);
 }
 
 function bindEventsForAddingTasks() {
   const showAddTaskPopupEvent = "showAddTaskPopup";
   const hideAddTaskPopupEvent = "hideAddTaskPopup";
-  const displayInboxTasksEvent = "displayInboxTasksEvent";
+  const displayProjectTasksEvent = "displayProjectTasksEvent";
 
   PubSub.subscribe(showAddTaskPopupEvent, showAddTaskPopup);
 
   PubSub.subscribe(hideAddTaskPopupEvent, hideAddTaskPopup);
 
-  PubSub.subscribe(displayInboxTasksEvent, displayInboxTasks);
+  PubSub.subscribe(displayProjectTasksEvent, displayProjectTasks);
 }
 
 function showAddProjectPopup() {
