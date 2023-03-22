@@ -72,7 +72,6 @@ function displayTask(currentTask, currentTaskIndex) {
 }
 
 function displayProjectTasks(eventMessage, currentProject) {
-  console.log(currentProject);
   cachedDOM.$currentProjectTitle.textContent = currentProject.projectName;
   clearCurrentTaskDisplay();
   currentProject.taskListArray.forEach(displayTask);
