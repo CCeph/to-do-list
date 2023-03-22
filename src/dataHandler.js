@@ -44,8 +44,12 @@ function createTask(formID, formAnswers) {
     const newProject = createProject(`${formAnswers.project}`);
     newProject.taskListArray.push(formAnswers);
     projectArray.push(newProject);
+    const displayProjectTasksEvent = "displayProjectTasksEvent";
+    PubSub.publish(displayProjectTasksEvent, newProject);
   } else {
     projectMatch.taskListArray.push(formAnswers);
+    const displayProjectTasksEvent = "displayProjectTasksEvent";
+    PubSub.publish(displayProjectTasksEvent, projectMatch);
   }
 }
 
