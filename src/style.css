@@ -1,5 +1,6 @@
-/* Imports DM Sans and Heebo */
+/* Imports DM Sans, Heebo, and Lato */
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans&family=Heebo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
 /* Defaults */
 
@@ -28,6 +29,7 @@ textarea {
   --listTitleFont: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Apple Color Emoji", Helvetica, Arial, sans-serif, "Segoe UI Emoji",
     "Segoe UI Symbol";
+  --regularFont: "Lato", sans-serif;
   --cyanForeground: #3fc9d8;
   --clickedButtonShadow: inset 0px 0px 3px grey;
 }
@@ -211,10 +213,13 @@ textarea {
   background-color: var(--activeNavButtonColor);
 }
 
+.task-wrapper :is(h3, p) {
+  font-family: var(--regularFont);
+  font-weight: 200;
+}
+
 .task-wrapper .task-title {
   margin: 5px;
-  font-family: var(--titleFont);
-  font-weight: 200;
 }
 
 /* End of Task Styling */
