@@ -32,6 +32,7 @@ textarea {
   --regularFont: "Lato", sans-serif;
   --cyanForeground: #3fc9d8;
   --clickedButtonShadow: inset 0px 0px 3px grey;
+  --clickedRedButtonShadow: inset 0px 0px 3px rgb(51, 0, 0);
 }
 
 /* Grid styling for the whole page layout */
@@ -225,6 +226,10 @@ textarea {
   border-radius: 5px;
   border: 0;
   font-family: var(--titleFont);
+}
+
+.task-right-sidebar > .remove-task-button:active {
+  box-shadow: var(--clickedRedButtonShadow);
 }
 
 .task-right-sidebar > .remove-task-button:hover {
