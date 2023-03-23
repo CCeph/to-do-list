@@ -9,7 +9,7 @@ function createDOMCache() {
 
 const cachedDOM = createDOMCache();
 
-const projectArray = [];
+let projectArray = [];
 
 // Object for every project
 function createProject(projectName) {
@@ -32,10 +32,12 @@ projectArray.push(inbox);
 // Object for every task
 function createTask(formID, formAnswers) {
   if (formAnswers.project === "") {
-    inbox.taskListArray.push(formAnswers);
+    const storedInbox = projectArray[0];
+    storedInbox.taskListArray.push(formAnswers);
 
     const displayProjectTasksEvent = "displayProjectTasksEvent";
-    PubSub.publish(displayProjectTasksEvent, inbox);
+    PubSub.publish(displayProjectTasksEvent, storedInbox);
+    console.log(projectArray);
     return;
   }
   const projectMatch = projectArray.find(
@@ -96,4 +98,31 @@ function bindEventsForTaskDisplays() {
   });
 }
 
+function storeUserData() {
+  window.addEventListener(
+    "beforeunload",
+    () => {
+      const jsonProjectArray = JSON.stringify(projectArray);
+      localStorage.setItem("projectList", jsonProjectArray);
+    },
+    false
+  );
+}
+
+function loadUserData() {
+  window.addEventListener("DOMContentLoaded", () => {
+    const jsonProjectArray = localStorage.getItem("projectList");
+    projectArray = JSON.parse(jsonProjectArray);
+    console.log(projectArray);
+
+    const displayProjectsEvent = "displayProjectsEvent";
+    PubSub.publish(displayProjectsEvent, projectArray);
+
+    const displayProjectTasksEvent = "displayProjectTasksEvent";
+    PubSub.publish(displayProjectTasksEvent, projectArray[0]);
+  });
+}
+
 bindEventsForTaskDisplays();
+storeUserData();
+loadUserData();
