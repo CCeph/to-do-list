@@ -62,6 +62,8 @@ function removeProject(eventMessage, removeProjectButton) {
   const displayProjectsEvent = "displayProjectsEvent";
   PubSub.publish(displayProjectsEvent, projectArray);
 }
+
+function removeTask(eventMessage, taskToRemove) {}
 // eslint-disable-next-line no-unused-vars
 const subscribeToNewTask = PubSub.subscribe(
   cachedDOM.$newTaskForm.id,
@@ -79,6 +81,12 @@ const removeProjectEvent = "removeProjectEvent";
 const subscribeToRemoveProject = PubSub.subscribe(
   removeProjectEvent,
   removeProject
+);
+
+const removeTaskEvent = "removeTaskEvent";
+const subscribeToRemoveTaskEvent = PubSub.subscribe(
+  removeTaskEvent,
+  removeTask
 );
 
 function bindEventsForTaskDisplays() {
