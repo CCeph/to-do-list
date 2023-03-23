@@ -30,6 +30,13 @@ function clearCurrentTaskDisplay() {
   cachedDOM.$taskList.textContent = "";
 }
 
+function bindRemoveTaskButton(task, removeTaskButton) {
+  removeTaskButton.addEventListener("click", () => {
+    const removeTaskEvent = "removeTaskEvent";
+    PubSub.publish(removeTaskEvent, task);
+  });
+}
+
 function displayTask(currentTask, currentTaskIndex) {
   const taskWrapper = document.createElement("li");
   taskWrapper.classList.add("task-wrapper");
@@ -67,6 +74,7 @@ function displayTask(currentTask, currentTaskIndex) {
   const removeTaskButton = document.createElement("button");
   removeTaskButton.classList.add("remove-task-button");
   removeTaskButton.id = `${currentTask.project}TaskID${currentTaskIndex}`;
+  bindRemoveTaskButton(currentTask, removeTaskButton);
   removeTaskButton.textContent = "x";
   rightSidebar.appendChild(removeTaskButton);
 }
@@ -114,6 +122,12 @@ function clearCurrentProjectDisplay() {
   });
 }
 
+function bindDisplayProjectButton(project, projectButton) {
+  projectButton.addEventListener("click", () => {
+    displayProjectTasks("", project);
+  });
+}
+
 function bindRemoveProjectButton(button) {
   button.addEventListener("click", () => {
     const removeProjectEvent = "removeProjectEvent";
@@ -129,9 +143,7 @@ function displayProject(project, projectIndex) {
   const projectButton = document.createElement("button");
   projectButton.classList.add("nav-project");
   projectButton.textContent = project.projectName;
-  projectButton.addEventListener("click", () => {
-    displayProjectTasks("", project);
-  });
+  bindDisplayProjectButton(project, projectButton);
   wrapper.appendChild(projectButton);
 
   const removeProjectButton = document.createElement("button");
