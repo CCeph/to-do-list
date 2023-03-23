@@ -63,7 +63,20 @@ function removeProject(eventMessage, removeProjectButton) {
   PubSub.publish(displayProjectsEvent, projectArray);
 }
 
-function removeTask(eventMessage, taskToRemove) {}
+function removeTask(eventMessage, taskToRemove) {
+  projectArray.every((project) => {
+    const taskToRemoveID = project.taskListArray.findIndex(
+      (task) => task === taskToRemove
+    );
+    project.taskListArray.splice(taskToRemoveID, 1);
+    if (taskToRemoveID !== -1) {
+      const displayProjectTasksEvent = "displayProjectTasksEvent";
+      PubSub.publish(displayProjectTasksEvent, project);
+      return false;
+    }
+    return true;
+  });
+}
 
 PubSub.subscribe(cachedDOM.$newTaskForm.id, createTask);
 
