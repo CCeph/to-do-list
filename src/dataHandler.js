@@ -112,14 +112,15 @@ function storeUserData() {
 function loadUserData() {
   window.addEventListener("DOMContentLoaded", () => {
     const jsonProjectArray = localStorage.getItem("projectList");
-    projectArray = JSON.parse(jsonProjectArray);
-    console.log(projectArray);
+    const parsedProjectArray = JSON.parse(jsonProjectArray);
+    if (parsedProjectArray !== null) {
+      projectArray = parsedProjectArray;
+      const displayProjectsEvent = "displayProjectsEvent";
+      PubSub.publish(displayProjectsEvent, projectArray);
 
-    const displayProjectsEvent = "displayProjectsEvent";
-    PubSub.publish(displayProjectsEvent, projectArray);
-
-    const displayProjectTasksEvent = "displayProjectTasksEvent";
-    PubSub.publish(displayProjectTasksEvent, projectArray[0]);
+      const displayProjectTasksEvent = "displayProjectTasksEvent";
+      PubSub.publish(displayProjectTasksEvent, projectArray[0]);
+    }
   });
 }
 
