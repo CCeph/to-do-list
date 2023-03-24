@@ -28,8 +28,8 @@ Things to implement:
     Create a form to add items to certain projects.
 
 
-    Handle output for tasks and Projects
+
     Figure out date-fns to get Today and This Week working
-    Figure out localStorage
     Do form validation and styling
-    Empty the form upon submission or cancelling.
+    Empty the form upon submission.
+    Bind the tick mark.
