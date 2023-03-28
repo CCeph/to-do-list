@@ -56,6 +56,7 @@ function displayTask(currentTask, currentTaskIndex) {
   checkMark.classList.add("material-symbols-outlined");
   checkMark.textContent = "done";
   checkButton.appendChild(checkMark);
+  bindRemoveTaskButton(currentTask, checkButton);
   leftSidebar.appendChild(checkButton);
 
   const title = document.createElement("h3");
